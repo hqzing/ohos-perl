@@ -45,7 +45,7 @@ export PATH=$PATH:/opt/perl-5.42.0-ohos-arm64/bin
 
 ## 从源码构建
 
-需要在鸿蒙容器中运行项目里的 build.sh，以实现 perl 的原生编译。
+需要在鸿蒙容器中运行项目里的 build.sh，以实现 perl 的本地编译（native compilation，也可以叫本机编译或原生编译）。
 
 示例：
 ```sh
