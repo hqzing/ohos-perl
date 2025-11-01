@@ -35,7 +35,7 @@ export PATH=$PATH:/data/perl-5.42.0-ohos-arm64/bin
 docker run -itd --name=ohos ghcr.io/hqzing/docker-mini-openharmony:latest
 docker exec -it ohos sh
 
-cd ~
+cd /root
 curl -L -O https://github.com/Harmonybrew/ohos-perl/releases/download/5.42.0/perl-5.42.0-ohos-arm64.tar.gz
 tar -zxf perl-5.42.0-ohos-arm64.tar.gz -C /opt
 export PATH=$PATH:/opt/perl-5.42.0-ohos-arm64/bin
@@ -45,5 +45,18 @@ export PATH=$PATH:/opt/perl-5.42.0-ohos-arm64/bin
 
 ## 从源码构建
 
-这一版 perl 是在鸿蒙容器中进行原生编译得到的。构建脚本是项目根目录的 build.sh，流水线配置在 [.github/workflows/ci.yml](.github/workflows/ci.yml) 文件中。想了解技术细节的的话可以查看这两个文件。
+需要在鸿蒙容器中运行项目里的 build.sh，以实现 perl 的原生编译。
+
+示例：
+```sh
+git clone https://github.com/Harmonybrew/ohos-perl.git
+
+docker run -itd --name=ohos ghcr.io/hqzing/docker-mini-openharmony:latest
+docker cp ohos-perl ohos:/root
+docker exec -it ohos sh
+
+cd /root/ohos-perl
+./build.sh
+
+# 构建完成后会在容器中生成 /opt/perl-5.42.0-ohos-arm64.tar.gz
 ```
