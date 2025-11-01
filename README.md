@@ -45,7 +45,7 @@ export PATH=$PATH:/opt/perl-5.42.0-ohos-arm64/bin
 
 ## 从源码构建
 
-与当前业界普遍采用的交叉编译的做法不同，这个项目使用本地编译（native compilation，也可以叫本机编译或原生编译）的做法来编译 perl。
+这个项目使用本地编译（native compilation，也可以叫本机编译或原生编译）的做法来编译鸿蒙版 perl，而不是交叉编译。
 
 需要在鸿蒙容器中运行项目里的 build.sh，以实现 perl 的本地编译。
 
